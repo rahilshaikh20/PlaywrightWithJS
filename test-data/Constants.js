@@ -1,9 +1,6 @@
 const URL = "https://opensource-demo.orangehrmlive.com/";
-const name = 'Rahil Shaikh';
+const name = 'Shahla Khan';
 const email = 'rahilshaikh20@gmail.com';
+const URI = 'https://reqres.in/api/users';
 
-module.exports = {
-  URL,
-  name,
-  email
-};
+module.exports = {URL,name,email,URI};
