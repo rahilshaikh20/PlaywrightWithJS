@@ -39,7 +39,7 @@ test('TC005_2: API testing POST Request' , async ({ request }) => {
 test('TC005_3: API testing PUT Request' , async ({ request }) => {
 
   //PUT Request
-  const response = await request.put(URI+userID,
+  const response = await request.put(URI+'/'+userID,
     {data:{ 
     "name": name, //getting value from constant
     "job": "Automation Lead" //Hardcoded 
@@ -59,7 +59,7 @@ test('TC005_3: API testing PUT Request' , async ({ request }) => {
 test('TC005_4: API testing DELETE Request' , async ({ request }) => {
 
   //DELETE Request
-  const response = await request.put(URI+userID,
+  const response = await request.put(URI+'/'+userID,
     {data:{ 
     "name": "Rahil Shaikh",
     "job": "Automation Lead"},
