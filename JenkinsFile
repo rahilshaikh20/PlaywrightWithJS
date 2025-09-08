@@ -24,12 +24,6 @@ pipeline {
                         cd $WORKSPACE
                         export PATH=$PATH:/usr/local/bin
                         npm install
-                    '''
-            }
-        }
-        stage('Install Playwright') {
-            steps {
-                 sh '''
                         npx playwright install
                     '''
             }
