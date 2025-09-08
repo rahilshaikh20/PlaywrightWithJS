@@ -1,0 +1,62 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                url: 'https://github.com/rahilshaikh20/PlaywrightWithJS.git'
+            }
+        }
+        stage('Preparation') {
+            steps {
+                 sh '''
+                        echo "Current Directory:"
+                        pwd
+                        echo "Directory Contents:"
+                        ls -lrt
+                    '''
+            }
+        }
+        stage('Install Dependencies') {
+            steps {
+                 sh '''
+                        cd $WORKSPACE
+                        export PATH=$PATH:/usr/local/bin
+                        npm install
+                    '''
+            }
+        }
+        stage('Install Playwright') {
+            steps {
+                 sh '''
+                        npx playwright install
+                    '''
+            }
+        }
+        stage('Build & Test') {
+            steps {
+                 sh '''
+                        npx playwright test
+                    '''
+            }
+        }
+    }
+    post {
+        success {
+            echo '✅ Build and tests completed successfully.'
+
+            publishHTML(target: [
+                reportDir: 'playwright-report',
+                reportFiles: 'index.html',
+                reportName: 'Test_Report',
+                keepAll: true,
+                alwaysLinkToLastBuild: true,
+                allowMissing: false
+            ])
+        }
+        failure {
+            echo '❌ Build or tests failed.'
+        }
+    }
+}
