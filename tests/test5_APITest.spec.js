@@ -14,7 +14,7 @@ test('TC005_1: API testing GET Request' , async ({ request }) => {
   expect (response.status()).toBe(200);
 
 })
-test.only('TC005_2: API testing POST Request' , async ({ request }) => {
+test('TC005_2: API testing POST Request' , async ({ request }) => {
 
   //POST Request
   const response = await request.post(URI,
