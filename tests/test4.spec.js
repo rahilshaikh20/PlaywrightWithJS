@@ -1,6 +1,6 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
-const {URL,name,email} = require('../test-data/Constants')
+const {URL,name,email} = require('../utils/Constants')
 const {validUser,invalidUser} = require('../test-data/LoginData')
 
 

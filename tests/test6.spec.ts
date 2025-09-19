@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { URL, name, email } from '../test-data/Constants';
+import { URL, name, email } from '../utils/Constants';
 import { validUser, invalidUser } from '../test-data/LoginData';
 
 test('TC006: Sample TS test', async ({ page }) => {

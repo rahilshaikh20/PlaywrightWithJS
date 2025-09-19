@@ -1,7 +1,7 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
 import { request } from 'http';
-const {URI,name} = require('../test-data/Constants')
+const {URI,name} = require('../utils/Constants')
 
 var userID;
 
